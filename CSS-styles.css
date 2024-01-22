@@ -22,5 +22,9 @@ h1 {
     margin: 30px;
   }
 
-.drop-down-box{background-color:grey;height:500px;width:800px}
+  .drop-down-box{
+      background-color:grey;
+      height:500px;
+      width:800px
+  }
 
