@@ -1,4 +1,3 @@
 <html>
-  
-<div color=blue> To explain the price for costumers</div>
+To explain the price for costumers WOW
 </html>
