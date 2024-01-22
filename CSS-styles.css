@@ -25,6 +25,8 @@ h1 {
   .drop-down-box{
       background-color:grey;
       height:500px;
-      width:80%
+      width:80%;
+      border-color:darkgrey;
+      border-radius:3xp;
   }
 
