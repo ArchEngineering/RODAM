@@ -1,4 +1,5 @@
-   <!DOCTYPE html>
+<!-- Her er alt det obligatoriske og titel -->
+<!DOCTYPE html>
 <html lang="da-DK">
 	
  <head>
@@ -9,64 +10,96 @@
   <link rel="stylesheet" href="styles.css">
  </head>
 
+
+
+
+<!-- Her laver jeg drop-downs -->
+
  <body>
   <div class="box">
     <h1>Vælg dit anneks</h1>
 
-          <select id="referrer" name="referrer">
-            <option value="">(Anneksstørrelse)</option>
+          <select id="size" name="referrer">
             <option value="1">26 m2</option>
             <option value="2">33 m2</option>
             <option value="3">38 m2</option>
             <option value="4">44 m2</option>
           </select>
 
-          <select id="referrer" name="referrer">
-            <option value="">(Facade)</option>
+          <select id="facade" name="referrer">
             <option value="1">Natur træ</option>
             <option value="2">Sort</option>
           </select>
 
-          <select id="referrer" name="referrer">
-            <option value="">(Anneksstørrelse)</option>
-            <option value="1">Natur træ</option>
-            <option value="2">Sort træ</option>
-            <option value="3">Sort sinus stålplade</option>
-            <option value="4">Sort tagpap</option>
-          </select>
-
-          <select id="referrer" name="referrer">
-            <option value="">(Terrasse)</option>
-            <option value="1">Ja</option>
-            <option value="2">Nej</option>
-          </select>
-
-          <select id="referrer" name="referrer">
-            <option value="">(Toilet)</option>
-            <option value="1">Ja</option>
-            <option value="2">Nej</option>
-          </select>
-
-          <select id="referrer" name="referrer">
-            <option value="">(Vinduestype)</option>
-            <option value="1">2-lags ruder</option>
-            <option value="2">3-lags ruder</option>
-          </select>
-
-          <select id="referrer" name="referrer">
-            <option value="">(Eksempel)</option>
-            <option value="1">Ja</option>
-            <option value="2">Nej</option>
-          </select>
-
-
-          <select id="referrer" name="referrer">
-            <option value="">(Eksempel)</option>
-            <option value="1">Ja</option>
-            <option value="2">Nej</option>
-          </select>
-
-
   </div>
+
+
+
+
+<!-- Her laver jeg billedet -->
+
+<div class="pictures">
+  <img id="combinationImage" src="" alt="Combination Image">
+</div>
+
+
+
+
+<!-- Her laver jeg den endelige pris ud fra summen af priser -->
+
+  <div class="pris">
+    <p>Din pris:</p>
+    <span id="sumPrice">0</span>DKK</div>
+
+
+<!-- Dette er tabellen som viser specifikationer -->
+<p>Specifications of your price
+<table border="2">
+    <tr>
+      <th>ID</th>
+      <th>Type</th>
+      <th>stk/m/m2</th>
+      <th>Enhedspris</th>
+      <th>Pris</th>
+    </tr>
+
+ <!-- Dette er faste omkostninger #001-->
+    <tr>
+      <td rowspan="3">#001 Faste omkostninger</td>
+      <td>Jordundersøgelser</td>
+      <td>-</td>
+      <td id="#1price1"></td>
+      <td rowspan = "3"><span id="#1totalPrice">0</span></td>
+    </tr>
+
+    <tr>
+      <td>Udgravning</td>
+      <td>-</td>
+      <td id="#1price2"></td>
+    </tr>
+
+    <tr>
+      <td> Myndighed </td>
+      <td>-</td>
+      <td id="#1price3"></td>
+    </tr>
+
+
+<!-- Dette er størrelsen #002 -->
+
+    <tr>
+      <td>#002 Størrelse</td>
+      <td>Areal</td>
+      <td id="selectedValue"></td>
+      <td id="price4">0</td>
+    </tr>
+
+
+  </table></p>
+
+
+  <script src="./script.js"></script>
+
+
  </body>
 </html>
