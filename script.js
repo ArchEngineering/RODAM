@@ -14,6 +14,10 @@ document.addEventListener('DOMContentLoaded', function () {
   const displayArea = document.getElementById('displayArea');
   const unitAreaPriceDisplay = document.getElementById('unitAreaPriceDisplay');
   const areaPriceDisplay = document.getElementById('areaPriceDisplay');
+  const displayfacadeArea = document.getElementById('displayfacadeArea');
+  const displayUnitFacadeAreaPrice = document.getElementById('displayUnitFacadeAreaPrice');
+  const facadePriceCell = document.getElementById('facadePrice');
+  const displaySum = document.getElementById('displaySum');
 
   const optionNumbers = {
     '1': 26,
@@ -23,6 +27,27 @@ document.addEventListener('DOMContentLoaded', function () {
   };
 
   const unitAreaPrice = 10000;
+  const unitFacadeAreaPrice = 250;
+
+  let areaPrice = 0;  // Declare areaPrice in a broader scope
+  let facadePrice = 0; // Declare facadePrice in a broader scope
+
+  // Set initial Maling row values based on default facade option
+  const defaultFacadeOption = facadeSelect.options[facadeSelect.selectedIndex].value;
+  const malingRow = document.querySelectorAll('#facadePrice, #displayUnitFacadeAreaPrice, #displayfacadeArea');
+
+  if (defaultFacadeOption === '1') { // Check if "Natur træ" is default
+    // Set Maling row to 0
+    malingRow.forEach(cell => cell.textContent = 0);
+    calculateAndSetAreaPrice(0); // Calculate and set values for the row above
+  } else {
+    // Set initial values based on Sort
+    const initialSelectedOption = sizeSelect.options[sizeSelect.selectedIndex].value;
+    const initialNumber = optionNumbers[initialSelectedOption] || 0;
+    displayArea.textContent = initialNumber;
+    unitAreaPriceDisplay.textContent = unitAreaPrice;
+    calculateAndSetAreaPrice(initialNumber);
+  }
 
   // Billeder
   updateImageSource(1, 1);
@@ -61,8 +86,16 @@ document.addEventListener('DOMContentLoaded', function () {
   displayArea.textContent = initialNumber;
 
   function calculateAndSetAreaPrice(selectedNumber) {
-    const areaPrice = unitAreaPrice * selectedNumber;
+    areaPrice = unitAreaPrice * selectedNumber;
     areaPriceDisplay.textContent = areaPrice;
+
+    const displayfacadeAreaValue = selectedNumber * 5;
+    displayfacadeArea.textContent = displayfacadeAreaValue;
+
+    facadePrice = displayfacadeAreaValue * displayUnitFacadeAreaPrice.textContent;
+    facadePriceCell.textContent = facadePrice;
+
+    calculateAndDisplaySum();
   }
 
   calculateAndSetAreaPrice(initialNumber);
@@ -70,6 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
   sizeSelect.addEventListener('change', function () {
     updateImageSource(parseInt(sizeSelect.value), parseInt(facadeSelect.value));
 
+    // Dette er også til farven
     const selectedIndex = sizeSelect.selectedIndex;
     const selectedOption = sizeSelect.options[selectedIndex].value;
     const selectedNumber = optionNumbers[selectedOption] || 0;
@@ -81,10 +115,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
   unitAreaPriceDisplay.textContent = unitAreaPrice;
 
+  // #003 Farve
+  displayfacadeArea.textContent = initialNumber * 5;
+  displayUnitFacadeAreaPrice.textContent = unitFacadeAreaPrice;
 
+  const facadePriceValue = displayfacadeArea.textContent * displayUnitFacadeAreaPrice.textContent;
+  facadePriceCell.textContent = facadePriceValue;
 
-// #003 Farve
+  facadeSelect.addEventListener('change', function () {
+    const selectedFacadeOption = facadeSelect.options[facadeSelect.selectedIndex].value;
 
+    if (selectedFacadeOption === '1') { // Check if "Natur træ" is selected
+      // Set Maling row to 0
+      malingRow.forEach(cell => cell.textContent = 0);
+      calculateAndSetAreaPrice(0); // Calculate and set values for the row above
+    } else {
+
+      const selectedNumber = optionNumbers[sizeSelect.value] || 0;
+      calculateAndSetAreaPrice(selectedNumber);
+    }
+  });
+
+  function calculateAndDisplaySum() {
+    const sum = totalPrice + areaPrice + facadePrice;
+    displaySum.textContent = sum;
+  }
 
 
 });
