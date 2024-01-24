@@ -19,12 +19,12 @@
   <div class="box">
     <h1>Vælg dit anneks</h1>
 
-          <select id="size" name="referrer">
-            <option value="1">26 m2</option>
-            <option value="2">33 m2</option>
-            <option value="3">38 m2</option>
-            <option value="4">44 m2</option>
-          </select>
+  <select id="size" name="referrer">
+   <option value="1">26 m2</option>
+   <option value="2">33 m2</option>
+   <option value="3">38 m2</option>
+   <option value="4">44 m2</option>
+  </select>
 
           <select id="facade" name="referrer">
             <option value="1">Natur træ</option>
@@ -48,13 +48,13 @@
 <!-- Her laver jeg den endelige pris ud fra summen af priser -->
 
   <div class="pris">
-    <p>Din pris:</p>
+    <p>Din pris:
     <span id="sumPrice">0</span>DKK</div>
 
 
 
 <!-- Dette er tabellen som viser specifikationer -->
-<p>Specifications of your price</p>
+<p>Specifikationer af din pris</p>
 <table border="2">
     <tr>
       <th>ID</th>
@@ -91,12 +91,38 @@
     <tr>
       <td>#002 Størrelse</td>
       <td>Areal</td>
-      <td id="selectedValue"></td>
-      <td id="price4">0</td>
+      <td id="displayArea"></td>
+      <td id="unitAreaPriceDisplay"></td>
+      <td id="areaPriceDisplay"></td>
     </tr>
 
 
-  </table>
+<!-- Dette er farven #003 -->
+
+    <tr>
+      <td rowspan="2">#003 Farve</td>
+      <td>Maling</td>
+      <td ></td>
+      <td ></td>
+      <td ></td>
+    </tr>
+
+    <tr>
+      <td>Arbejdstid</td>
+      <td ></td>
+      <td ></td>
+      <td ></td>
+    </tr>
+
+        <tr>
+      <td>Sum</td>
+      <td >-</td>
+      <td >-</td>
+      <td >-</td>
+      <td >...=</td>
+    </tr>
+  </table></p>
+
 
   <script src="script.js"></script>
 
