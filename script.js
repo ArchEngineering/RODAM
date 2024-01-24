@@ -1,8 +1,8 @@
-// Konstanter
 document.addEventListener('DOMContentLoaded', function () {
   const sizeSelect = document.getElementById('size');
   const facadeSelect = document.getElementById('facade');
   const combinationImage = document.getElementById('combinationImage');
+
   const price1 = 40000;
   const price2 = 40000;
   const price3 = 20000;
@@ -11,15 +11,21 @@ document.addEventListener('DOMContentLoaded', function () {
   const price3Cell = document.getElementById('price3');
   const totalPriceCell = document.getElementById('totalPrice');
 
+  const displayArea = document.getElementById('displayArea');
+  const unitAreaPriceDisplay = document.getElementById('unitAreaPriceDisplay');
+  const areaPriceDisplay = document.getElementById('areaPriceDisplay');
 
+  const optionNumbers = {
+    '1': 26,
+    '2': 33,
+    '3': 38,
+    '4': 44
+  };
 
-// Billeder
+  const unitAreaPrice = 10000;
+
+  // Billeder
   updateImageSource(1, 1);
-
-  sizeSelect.addEventListener('change', function () {
-    updateImageSource(parseInt(sizeSelect.value), parseInt(facadeSelect.value));
-  });
-
   facadeSelect.addEventListener('change', function () {
     updateImageSource(parseInt(sizeSelect.value), parseInt(facadeSelect.value));
   });
@@ -41,13 +47,44 @@ document.addEventListener('DOMContentLoaded', function () {
     combinationImage.src = currentImageSource;
   }
 
-
-
-// #001 Faste omkostninger 
-    price1Cell.textContent = price1;
+  // #001 Faste omkostninger
+  price1Cell.textContent = price1;
   price2Cell.textContent = price2;
   price3Cell.textContent = price3;
 
   const totalPrice = price1 + price2 + price3;
   totalPriceCell.textContent = totalPrice;
+
+  // #002 Areal
+  const initialSelectedOption = sizeSelect.options[sizeSelect.selectedIndex].value;
+  const initialNumber = optionNumbers[initialSelectedOption] || 0;
+  displayArea.textContent = initialNumber;
+
+  function calculateAndSetAreaPrice(selectedNumber) {
+    const areaPrice = unitAreaPrice * selectedNumber;
+    areaPriceDisplay.textContent = areaPrice;
+  }
+
+  calculateAndSetAreaPrice(initialNumber);
+
+  sizeSelect.addEventListener('change', function () {
+    updateImageSource(parseInt(sizeSelect.value), parseInt(facadeSelect.value));
+
+    const selectedIndex = sizeSelect.selectedIndex;
+    const selectedOption = sizeSelect.options[selectedIndex].value;
+    const selectedNumber = optionNumbers[selectedOption] || 0;
+
+    displayArea.textContent = selectedNumber;
+
+    calculateAndSetAreaPrice(selectedNumber);
+  });
+
+  unitAreaPriceDisplay.textContent = unitAreaPrice;
+
+
+
+// #003 Farve
+
+
+
 });
