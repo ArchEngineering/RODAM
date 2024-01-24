@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const price1Cell = document.getElementById('price1');
   const price2Cell = document.getElementById('price2');
   const price3Cell = document.getElementById('price3');
-  const totalPriceCell = document.getElementById('#1totalPrice');
+  const totalPriceCell = document.getElementById('totalPrice');
 
   price1Cell.textContent = price1;
   price2Cell.textContent = price2;
