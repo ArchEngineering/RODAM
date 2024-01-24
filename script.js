@@ -1,9 +1,19 @@
-// Billeder
+// Konstanter
 document.addEventListener('DOMContentLoaded', function () {
   const sizeSelect = document.getElementById('size');
   const facadeSelect = document.getElementById('facade');
   const combinationImage = document.getElementById('combinationImage');
+  const price1 = 40000;
+  const price2 = 40000;
+  const price3 = 20000;
+  const price1Cell = document.getElementById('price1');
+  const price2Cell = document.getElementById('price2');
+  const price3Cell = document.getElementById('price3');
+  const totalPriceCell = document.getElementById('totalPrice');
 
+
+
+// Billeder
   updateImageSource(1, 1);
 
   sizeSelect.addEventListener('change', function () {
@@ -30,45 +40,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const currentImageSource = imageSources[combinationKey] || 'https://rodam-home.dk/wp-content/uploads/2022/01/design-dit-eget-anneks-26-m2.jpg';
     combinationImage.src = currentImageSource;
   }
-});
 
 
 
-
-
-
-// Dette er kun til #001
-document.addEventListener('DOMContentLoaded', function () {
-  const price1 = 40000;
-  const price2 = 40000;
-  const price3 = 20000;
-
-  const price1Cell = document.getElementById('price1');
-  const price2Cell = document.getElementById('price2');
-  const price3Cell = document.getElementById('price3');
-  const totalPriceCell = document.getElementById('totalPrice');
-
-  price1Cell.textContent = price1;
+// #001 Faste omkostninger 
+    price1Cell.textContent = price1;
   price2Cell.textContent = price2;
   price3Cell.textContent = price3;
 
   const totalPrice = price1 + price2 + price3;
   totalPriceCell.textContent = totalPrice;
 });
-
-
-
-
-
-// Dette er kun til #002
-document.addEventListener('DOMContentLoaded', function () {
-  const areaPrice = 10000;
-  
-
-
-
-
-
-
-
-
