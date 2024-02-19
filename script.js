@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
   price2Cell.textContent = price2;
   price3Cell.textContent = price3;
 
-  const totalPrice = price1 + price2 + price3;
+  totalPrice = price1 + price2 + price3;
   totalPriceCell.textContent = totalPrice;
 
   // #002 Areal
