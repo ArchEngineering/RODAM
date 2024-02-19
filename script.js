@@ -1,3 +1,4 @@
+console.log("Script loaded");
 document.addEventListener('DOMContentLoaded', function () {
   const sizeSelect = document.getElementById('size');
   const facadeSelect = document.getElementById('facade');
